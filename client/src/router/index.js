@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Switch,
-  Route,
-  Redirect,
-  BrowserRouter as Router
-} from "react-router-dom";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import Shipments from "../components/Shipments";
 import ShipmentDetails from "../components/ShipmentDetails";
 

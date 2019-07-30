@@ -3,19 +3,7 @@ import { Link } from "react-router-dom";
 import "./Shipment.sass";
 
 let Shipment = ({ shipment }) => {
-  const {
-    id,
-    name,
-    type,
-    total,
-    userId,
-    mode,
-    status,
-    cargo,
-    origin,
-    destination,
-    services
-  } = shipment;
+  const { id, name, mode, status, origin, destination } = shipment;
   return (
     <Link to={`/shipments/${id}`}>
       <div className="shipment-item">

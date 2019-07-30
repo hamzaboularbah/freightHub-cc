@@ -16,7 +16,7 @@ const ShipementDetailsContainer = ({ match }) => {
 
   useEffect(() => {
     getShipment(match.params.shipmentId);
-  }, []);
+  }, [match.params.shipmentId]);
 
   const changeEditMode = () => {
     setIsEditMode(true);

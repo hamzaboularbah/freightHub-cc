@@ -1,5 +1,5 @@
 import axios from "axios";
-import config from "../config/config";
+//import config from "../config/config";
 
 let baseUrl = window.location.origin;
 if (window.location.hostname === "localhost") {

@@ -44,7 +44,7 @@ let Shipments = ({
             <Shipment key={i} shipment={shipment} />
           ))
         ) : (
-          <h1>No Shipments to Show</h1>
+          <h4>No Shipments to Show...</h4>
         )}
       </div>
 
