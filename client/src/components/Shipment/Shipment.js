@@ -25,7 +25,7 @@ let Shipment = ({ shipment }) => {
         <div className="shipment-item__details">
           <div className="shipment-item__header">
             <h4>
-              {name} - <strong>{total} &euro;</strong>
+              {name} - <strong>{mode}</strong>
             </h4>
 
             <div

@@ -33,7 +33,7 @@ let Shipments = ({
             </option>
             <option value="id">ID</option>
             <option value="name">Name</option>
-            <option value="total">Price</option>
+            <option value="mode">Mode</option>
           </select>
         </div>
       </div>
