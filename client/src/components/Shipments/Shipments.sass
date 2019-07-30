@@ -1,4 +1,3 @@
-
 a
     color: inherit
     text-decoration: none
@@ -8,9 +7,20 @@ a
     flex-wrap: wrap
     align-items: center
     .search, .sort
-        min-width: 40%
+        min-width: 45%
         margin-right: 40px
         margin-top: 20px
+    .search
+        display: flex;
+        align-items: center
+        flex-wrap: wrap
+        span, button
+            margin-top: 20px
+        button
+            border: 1px solid #CCC
+            border-radius: 4px
+            outline: none
+            cursor: pointer
     span
         font-size: 18px
         line-height: 13px
@@ -19,7 +29,7 @@ a
         height: 25px
         border: 1px solid #CCC
         border-radius: 4px
-        margin: 20px 30px 0px 10px
+        margin: 20px 20px 0px 10px
         outline: none
         padding: 0 5px
         max-width: 250px;
@@ -41,7 +51,31 @@ a
                 border: 1px solid #CCC
                 border-radius: 4px
                 cursor: pointer
-            
+
+
+
+.loader
+  width : 100%
+  display: flex
+  flex-direction: column
+  align-items: center
+  margin-top: 25%
+  font-family: 'Roboto', sans-serif
+  .spinner
+    margin-bottom: 30px
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #7befb2;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+
+@keyframes spin 
+  0% 
+    transform: rotate(0deg);
+  100% 
+    transform: rotate(360deg);
+
              
 
   

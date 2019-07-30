@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Shipment from "../Shipment/Shipment";
 import _ from "lodash";
 import "./Shipments.sass";
@@ -12,6 +12,7 @@ let Shipments = ({
   pageSize,
   currentPage
 }) => {
+  const [searchID, setSearchID] = useState("");
   const pagesCount = Math.ceil(shipments.length / pageSize);
   const pages = _.range(1, pagesCount + 1);
   return (
@@ -20,10 +21,15 @@ let Shipments = ({
         <div className="search">
           <span>Search : </span>
           <input
-            onChange={e => onFilter(e.target.value)}
+            onChange={e =>
+              !e.target.value ? onFilter("") : setSearchID(e.target.value)
+            }
             type="text"
             placeholder="search by ID"
           />
+          <button onClick={() => (searchID ? onFilter(searchID) : searchID)}>
+            Find
+          </button>
         </div>
         <div className="sort">
           <span>Sort by :</span>
@@ -43,25 +49,34 @@ let Shipments = ({
           paginatedShipments.map((shipment, i) => (
             <Shipment key={i} shipment={shipment} />
           ))
+        ) : searchID ? (
+          <h3>No Shipments available</h3>
         ) : (
-          <h4>No Shipments to Show...</h4>
+          <div className="loader">
+            <div className="spinner" />
+            <div className="loading-message">
+              Chargement des films en cours...
+            </div>
+          </div>
         )}
       </div>
 
-      <div className="pagination">
-        <ul className="pagination-items">
-          {pages.map(page => (
-            <li
-              value={page}
-              onClick={e => onchangeCurrentPage(e.target.value)}
-              className={page === currentPage ? "active" : ""}
-              key={page}
-            >
-              {page}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {pages.length > 1 ? (
+        <div className="pagination">
+          <ul className="pagination-items">
+            {pages.map(page => (
+              <li
+                value={page}
+                onClick={e => onchangeCurrentPage(e.target.value)}
+                className={page === currentPage ? "active" : ""}
+                key={page}
+              >
+                {page}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   );
 };
