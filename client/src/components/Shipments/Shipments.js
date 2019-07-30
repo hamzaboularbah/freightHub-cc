@@ -1,39 +1,47 @@
 import React from "react";
 import Shipment from "../Shipment/Shipment";
 import _ from "lodash";
+import "./Shipments.sass";
 
 let Shipments = ({
   paginatedShipments,
   shipments,
   onFilter,
   onSort,
-  getShipments,
   onchangeCurrentPage,
-  pageSize
+  pageSize,
+  currentPage
 }) => {
   const pagesCount = Math.ceil(shipments.length / pageSize);
   const pages = _.range(1, pagesCount + 1);
   return (
-    <React.Fragment>
-      <input
-        onChange={e => onFilter(e.target.value)}
-        type="text"
-        placeholder="search by ID"
-      />
-      <span>Sort by : </span>
-      <select onChange={e => onSort(e.target.value)} defaultValue="-">
-        <option disabled value="-">
-          -
-        </option>
-        <option value="id">ID</option>
-        <option value="name">Name</option>
-        <option value="mode">Mode</option>
-      </select>
+    <div className="container">
+      <div className="filters-area">
+        <div className="search">
+          <span>Search : </span>
+          <input
+            onChange={e => onFilter(e.target.value)}
+            type="text"
+            placeholder="search by ID"
+          />
+        </div>
+        <div className="sort">
+          <span>Sort by :</span>
+          <select onChange={e => onSort(e.target.value)} defaultValue="-">
+            <option disabled value="-">
+              -
+            </option>
+            <option value="id">ID</option>
+            <option value="name">Name</option>
+            <option value="total">Price</option>
+          </select>
+        </div>
+      </div>
 
       <div className="shipments-list">
         {paginatedShipments.length > 0 ? (
           paginatedShipments.map((shipment, i) => (
-            <Shipment getShipments={getShipments} key={i} shipment={shipment} />
+            <Shipment key={i} shipment={shipment} />
           ))
         ) : (
           <h1>No Shipments to Show</h1>
@@ -43,18 +51,18 @@ let Shipments = ({
       <div className="pagination">
         <ul className="pagination-items">
           {pages.map(page => (
-            <li key={page}>
-              <button
-                value={page}
-                onClick={e => onchangeCurrentPage(e.target.value)}
-              >
-                {page}
-              </button>
+            <li
+              value={page}
+              onClick={e => onchangeCurrentPage(e.target.value)}
+              className={page === currentPage ? "active" : ""}
+              key={page}
+            >
+              {page}
             </li>
           ))}
         </ul>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

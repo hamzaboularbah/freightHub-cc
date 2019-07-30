@@ -6,15 +6,18 @@ import http from "../../utils/http";
 const ShipementDetailsContainer = ({ match }) => {
   const [shipment, setShipment] = useState({});
   const [isEditMode, setIsEditMode] = useState(false);
+
   const getShipment = id => {
     http
       .get(`/shipments/${id}`)
       .then(shipment => setShipment(shipment.data))
       .catch(err => console.log(err.message));
   };
+
   useEffect(() => {
     getShipment(match.params.shipmentId);
   }, []);
+
   const changeEditMode = () => {
     setIsEditMode(true);
   };
