@@ -54,7 +54,13 @@ const Shipments = ({
         ) : (
           <div className="loader">
             <div className="spinner" />
+<<<<<<< HEAD
             <div className="loading-message">Loading shipments...</div>
+=======
+            <div className="loading-message">
+              Loading shipments ...
+            </div>
+>>>>>>> 11fe692bd776528f7be262cb38042a866dc4b5c2
           </div>
         )}
       </div>
