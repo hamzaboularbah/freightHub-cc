@@ -3,7 +3,7 @@ import Shipments from "./Shipments";
 import http from "../../utils/http";
 import { paginate } from "../../utils/paginate";
 
-let ShipmentsContainer = () => {
+const ShipmentsContainer = () => {
   const pageSize = 20;
   const [shipments, setShipments] = useState([]);
   const [filteredShipements, setFilteredShipments] = useState(shipments);

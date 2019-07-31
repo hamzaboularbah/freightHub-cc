@@ -3,7 +3,7 @@ import Shipment from "../Shipment/Shipment";
 import _ from "lodash";
 import "./Shipments.sass";
 
-let Shipments = ({
+const Shipments = ({
   paginatedShipments,
   shipments,
   onFilter,
@@ -46,17 +46,15 @@ let Shipments = ({
 
       <div className="shipments-list">
         {paginatedShipments.length > 0 ? (
-          paginatedShipments.map((shipment, i) => (
-            <Shipment key={i} shipment={shipment} />
+          paginatedShipments.map(shipment => (
+            <Shipment key={shipment.id} shipment={shipment} />
           ))
         ) : searchID ? (
           <h3>No Shipments available</h3>
         ) : (
           <div className="loader">
             <div className="spinner" />
-            <div className="loading-message">
-              Chargement des films en cours...
-            </div>
+            <div className="loading-message">Loading shipments...</div>
           </div>
         )}
       </div>

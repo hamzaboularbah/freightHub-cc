@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Shipment.sass";
 
-let Shipment = ({ shipment }) => {
+const Shipment = ({ shipment }) => {
   const { id, name, mode, status, origin, destination } = shipment;
   return (
     <Link to={`/shipments/${id}`}>
