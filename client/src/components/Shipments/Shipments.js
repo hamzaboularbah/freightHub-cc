@@ -55,7 +55,7 @@ let Shipments = ({
           <div className="loader">
             <div className="spinner" />
             <div className="loading-message">
-              Chargement des films en cours...
+              Loading shipments ...
             </div>
           </div>
         )}
